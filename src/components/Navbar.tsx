@@ -56,6 +56,7 @@ export default function Navbar() {
   const [activeMenu, setActiveMenu] = useState<number | null>(null);
   const timeoutRef = useRef<NodeJS.Timeout>();
   const menuRef = useRef<HTMLDivElement>(null);
+  //test
 
   useEffect(() => {
     const handleScroll = () => {
