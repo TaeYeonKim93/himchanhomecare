@@ -8,12 +8,12 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3  # v2에서 v3로 업데이트
+      - uses: actions/checkout@v3
       
       - name: Setup Node.js
-        uses: actions/setup-node@v3  # v2에서 v3로 업데이트
+        uses: actions/setup-node@v3
         with:
-          node-version: '20'  # 최신 LTS 버전 사용
+          node-version: '20'
       
       - name: Setup SSH
         run: |
@@ -25,8 +25,9 @@ jobs:
       
       - name: Deploy to Server
         run: |
-          ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }} "\
+          ssh -v -o StrictHostKeyChecking=no ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }} "\
             cd ${{ secrets.SERVER_DEPLOY_PATH }} && \
+            pwd && \
             git pull origin main && \
             npm install && \
             npm run build && \
