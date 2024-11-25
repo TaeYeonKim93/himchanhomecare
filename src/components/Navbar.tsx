@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Logo } from './Logo';
@@ -53,8 +53,9 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [showConsultModal, setShowConsultModal] = useState(false);
   const [consultType, setConsultType] = useState<'phone' | 'kakao'>('phone');
-  const [activeSubmenu, setActiveSubmenu] = useState<number | null>(null);
-  const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
+  const [activeMenu, setActiveMenu] = useState<number | null>(null);
+  const timeoutRef = useRef<NodeJS.Timeout>();
+  const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -70,14 +71,51 @@ export default function Navbar() {
   };
 
   const handleMouseEnter = (index: number) => {
-    setActiveSubmenu(index);
-    setIsSubmenuOpen(true);
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    setActiveMenu(index);
   };
 
   const handleMouseLeave = () => {
-    setIsSubmenuOpen(false);
-    setActiveSubmenu(null);
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    timeoutRef.current = setTimeout(() => {
+      setActiveMenu(null);
+    }, 300);
   };
+
+  const SubMenu = ({ items, isVisible }: { items: any[]; isVisible: boolean }) => (
+    <AnimatePresence>
+      {isVisible && (
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
+          onMouseEnter={() => {
+            if (timeoutRef.current) {
+              clearTimeout(timeoutRef.current);
+            }
+          }}
+          onMouseLeave={handleMouseLeave}
+        >
+          <div className="py-1">
+            {items.map((subItem, idx) => (
+              <Link
+                key={idx}
+                to={subItem.link}
+                className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+              >
+                {subItem.title}
+              </Link>
+            ))}
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
 
   return (
     <>
@@ -116,28 +154,8 @@ export default function Navbar() {
                     >
                       {item.title}
                     </Link>
-                    {item.submenu && activeSubmenu === index && isSubmenuOpen && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 10 }}
-                        transition={{ duration: 0.2 }}
-                        className="absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
-                        onMouseEnter={() => setIsSubmenuOpen(true)}
-                        onMouseLeave={() => setIsSubmenuOpen(false)}
-                      >
-                        <div className="py-1">
-                          {item.submenu.map((subitem, subindex) => (
-                            <Link
-                              key={subindex}
-                              to={subitem.link}
-                              className="block px-4 py-2 text-base text-gray-700 hover:bg-gray-100"
-                            >
-                              {subitem.title}
-                            </Link>
-                          ))}
-                        </div>
-                      </motion.div>
+                    {item.submenu && activeMenu === index && (
+                      <SubMenu items={item.submenu} isVisible={true} />
                     )}
                   </div>
                 ))}

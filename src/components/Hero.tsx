@@ -4,15 +4,15 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const images = [
   {
-    url: "https://stackblitz.com/storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBNlV2R1E9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--40691e3d76c2f556c7f5bc3abda7600d1d913109/image_fx_%20(2).jpg",
+    url: "/images/image_fx_2.jpg",
     alt: "가족과 함께하는 행복한 시간"
   },
   {
-    url: "https://stackblitz.com/storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBNmN2R1E9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--249506e5178ce9db2e83ffc997be562dee09905a/image_fx_%20(6).jpg",
+    url: "/images/image_fx_3.jpg",
     alt: "봄날의 산책"
   },
   {
-    url: "https://stackblitz.com/storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBNmd2R1E9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--2ebd83f438ad8122c5d0443fc9f2dbbc60e5c97c/image_fx_%20(7).jpg",
+    url: "/images/image_fx_6.jpg",
     alt: "따뜻한 돌봄 서비스"
   }
 ];
