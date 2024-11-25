@@ -1,0 +1,26 @@
+name: Deploy to Ubuntu Server
+
+on:
+  push:
+    branches: [ main ]  # main 브랜치에 push될 때 실행됨
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh/
+          echo "${{ secrets.SERVER_SSH_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          eval "$(ssh-agent -s)"
+          ssh-add ~/.ssh/deploy_key
+      
+      - name: Deploy to Server
+        run: |
+          ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }} "\
+            cd ${{ secrets.SERVER_DEPLOY_PATH }} && \
+            git pull origin main && \
+            echo 'Deploy completed at $(date)'"
