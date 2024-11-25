@@ -27,9 +27,11 @@ jobs:
         run: |
           ssh -v -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }} "\
             cd ${{ secrets.SERVER_DEPLOY_PATH }} && \
+            echo 'Resetting local changes...' && \
+            git reset --hard && \
             git pull origin main && \
             npm install && \
             npm run build && \
-            pm2 delete himchanhomecare || true && \  # 기존 프로세스 삭제
+            pm2 delete himchanhomecare || true && \
             pm2 start npm --name himchanhomecare -- start && \
-            pm2 save"  # 상태 저장
+            pm2 save"
