@@ -2,13 +2,18 @@ name: Deploy to Ubuntu Server
 
 on:
   push:
-    branches: [ main ]  # main 브랜치에 push될 때 실행됨
+    branches: [ main ]
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20'  # 또는 프로젝트에서 사용하는 Node 버전
       
       - name: Setup SSH
         run: |
@@ -23,4 +28,6 @@ jobs:
           ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }} "\
             cd ${{ secrets.SERVER_DEPLOY_PATH }} && \
             git pull origin main && \
-            echo 'Deploy completed at $(date)'"
+            npm install && \
+            npm run build && \
+            pm2 restart himchanhomecare || pm2 start npm --name himchanhomecare -- start"
