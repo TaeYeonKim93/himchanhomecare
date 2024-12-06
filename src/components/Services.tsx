@@ -72,7 +72,7 @@ const services = [
       process: [
         '1단계: 상담신청 및 방문상담',
         '2단계: 신청서류 준비 및 접수',
-        '3단계: 의사소���서 발급',
+        '3단계: 의사소견서 발급',
         '4단계: 등급판정위원회 심사',
         '5단계: 결과통보 및 안내'
       ],
@@ -92,7 +92,7 @@ export default function Services() {
 
   return (
     <section id="services" className="py-20 bg-gray-50">
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
