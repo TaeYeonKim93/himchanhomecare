@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Logo } from './Logo';
 import ConsultModal from './ConsultModal';
 
@@ -10,8 +10,9 @@ const menuItems = [
     link: '/center',
     submenu: [
       { title: '센터소개', link: '/center' },
-      { title: '인사말', link: '/greeting' },
-      { title: '오시는길', link: '/location' }
+      { title: '인사말', link: '/center/greeting' },
+      { title: '오시는길', link: '/center/location' },
+      { title: '상담문의', link: '/center/contact' }
     ]
   },
   {
@@ -20,7 +21,9 @@ const menuItems = [
     submenu: [
       { title: '노인장기요양제도', link: '/long-term-care' },
       { title: '방문요양서비스', link: '/home-care' },
-      { title: '방문목욕서비스', link: '/bath-service' }
+      { title: '방문목욕서비스', link: '/bath-service' },
+      { title: '서비스소개', link: '/services/intro' },
+      { title: '무료등급신청대행', link: '/application/free' }
     ]
   },
   {
@@ -35,7 +38,11 @@ const menuItems = [
       { title: '센터소식', link: '/news' },
       { title: '힘찬 사진첩', link: '/gallery' },
       { title: '문의하기', link: '/inquiry' },
-      { title: '요양보호사구인구직', link: '/jobs' }
+      { title: '요양보호사구인구직', link: '/jobs' },
+      { title: '공지사항', link: '/community' },
+      { title: '활동소식', link: '/community' },
+      { title: '갤러리', link: '/community' },
+      { title: '자유게시판', link: '/community' }
     ]
   },
   {
@@ -43,33 +50,54 @@ const menuItems = [
     link: '/support',
     submenu: [
       { title: '후원안내', link: '/donation' },
-      { title: '봉사안내', link: '/volunteer' }
+      { title: '봉사안내', link: '/volunteer' },
+      { title: '후원안내', link: '/support' },
+      { title: '자원봉사', link: '/support' }
     ]
   }
 ];
 
+function SubMenu({ items, isVisible }: { items: any[]; isVisible: boolean }) {
+  if (!isVisible) return null;
+
+  return (
+    <div
+      className="absolute left-0 w-48 bg-white shadow-lg rounded-md overflow-hidden"
+      style={{ top: 'calc(100% - 0.5rem)' }}
+    >
+      <div className="py-1">
+        {items.map((item, index) => (
+          <Link
+            key={index}
+            to={item.link}
+            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+          >
+            {item.title}
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [activeMenu, setActiveMenu] = useState<number | null>(null);
   const [showConsultModal, setShowConsultModal] = useState(false);
   const [consultType, setConsultType] = useState<'phone' | 'kakao'>('phone');
-  const [activeMenu, setActiveMenu] = useState<number | null>(null);
+  const location = useLocation();
+  const isMainPage = location.pathname === '/';
   const timeoutRef = useRef<NodeJS.Timeout>();
-  const menuRef = useRef<HTMLDivElement>(null);
-  //test
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      setIsScrolled(window.scrollY > 0);
     };
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const handleConsult = (type: 'phone' | 'kakao') => {
-    setConsultType(type);
-    setShowConsultModal(true);
-  };
 
   const handleMouseEnter = (index: number) => {
     if (timeoutRef.current) {
@@ -79,44 +107,22 @@ export default function Navbar() {
   };
 
   const handleMouseLeave = () => {
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
     timeoutRef.current = setTimeout(() => {
       setActiveMenu(null);
-    }, 300);
+    }, 100);
   };
 
-  const SubMenu = ({ items, isVisible }: { items: any[]; isVisible: boolean }) => (
-    <AnimatePresence>
-      {isVisible && (
-        <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -10 }}
-          className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
-          onMouseEnter={() => {
-            if (timeoutRef.current) {
-              clearTimeout(timeoutRef.current);
-            }
-          }}
-          onMouseLeave={handleMouseLeave}
-        >
-          <div className="py-1">
-            {items.map((subItem, idx) => (
-              <Link
-                key={idx}
-                to={subItem.link}
-                className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-              >
-                {subItem.title}
-              </Link>
-            ))}
-          </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
-  );
+  const handleConsult = (type: 'phone' | 'kakao') => {
+    setConsultType(type);
+    setShowConsultModal(true);
+  };
+
+  const getTextColor = () => {
+    if (isMainPage) {
+      return isScrolled ? 'text-gray-800' : 'text-white';
+    }
+    return 'text-gray-800';
+  };
 
   return (
     <>
@@ -125,16 +131,16 @@ export default function Navbar() {
         animate={{ y: 0 }}
         transition={{ type: "spring", stiffness: 100 }}
         className={`fixed w-full z-50 transition-all duration-300 ${
-          isScrolled ? 'bg-white shadow-md' : 'bg-transparent'
+          isScrolled || !isMainPage ? 'bg-white shadow-md' : 'bg-transparent'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-20">
             <Link to="/" className="flex items-center space-x-3">
               <Logo className="h-12 w-12" />
-              <span className={`text-2xl font-bold ${
-                isScrolled ? 'text-gray-800' : 'text-white'
-              }`}>힘찬홈케어</span>
+              <span className={`text-2xl font-bold ${getTextColor()}`}>
+                힘찬홈케어
+              </span>
             </Link>
 
             {/* Desktop Menu */}
@@ -147,14 +153,17 @@ export default function Navbar() {
                     onMouseEnter={() => handleMouseEnter(index)}
                     onMouseLeave={handleMouseLeave}
                   >
-                    <Link
-                      to={item.link}
-                      className={`${
-                        isScrolled ? 'text-gray-800' : 'text-white'
-                      } hover:text-blue-600 px-3 py-2 text-lg font-medium tracking-wide`}
-                    >
-                      {item.title}
-                    </Link>
+                    <div className="relative">
+                      <Link
+                        to={item.link}
+                        className={`${getTextColor()} hover:text-blue-600 px-3 py-2 text-lg font-medium tracking-wide inline-block`}
+                      >
+                        {item.title}
+                      </Link>
+                      {item.submenu && (
+                        <div className="absolute h-8 w-full" style={{ top: '100%' }}></div>
+                      )}
+                    </div>
                     {item.submenu && activeMenu === index && (
                       <SubMenu items={item.submenu} isVisible={true} />
                     )}
@@ -185,9 +194,7 @@ export default function Navbar() {
             <div className="lg:hidden flex items-center">
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className={`${
-                  isScrolled ? 'text-gray-800' : 'text-white'
-                } hover:text-blue-600`}
+                className={`${getTextColor()} hover:text-blue-600`}
               >
                 <svg
                   className="h-6 w-6"
@@ -213,37 +220,21 @@ export default function Navbar() {
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="lg:hidden bg-white overflow-hidden"
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              className="lg:hidden bg-white border-t"
             >
               <div className="px-2 pt-2 pb-3 space-y-1">
                 {menuItems.map((item, index) => (
-                  <div key={index}>
-                    <Link
-                      to={item.link}
-                      className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md"
-                      onClick={() => setIsOpen(false)}
-                    >
-                      {item.title}
-                    </Link>
-                    {item.submenu && (
-                      <div className="pl-4">
-                        {item.submenu.map((subitem, subindex) => (
-                          <Link
-                            key={subindex}
-                            to={subitem.link}
-                            className="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-md"
-                            onClick={() => setIsOpen(false)}
-                          >
-                            {subitem.title}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
+                  <Link
+                    key={index}
+                    to={item.link}
+                    className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {item.title}
+                  </Link>
                 ))}
                 <div className="flex space-x-2 px-3 py-2">
                   <motion.button

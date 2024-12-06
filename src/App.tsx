@@ -27,41 +27,30 @@ import Jobs from './pages/community/Jobs';
 import Donation from './pages/support/Donation';
 import Volunteer from './pages/support/Volunteer';
 
+// Main page
+import Main from './pages/Main';
+import ServiceIntro from './pages/services/ServiceIntro';
+import FreeApplication from './pages/application/FreeApplication';
+import Community from './pages/community/Community';
+import Support from './pages/support/Support';
+
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-white">
+      <div className="flex flex-col min-h-screen">
         <Navbar />
-        <Routes>
-          <Route path="/" element={
-            <>
-              <Hero />
-              <Services />
-              <Contact />
-              <Partners />
-            </>
-          } />
-          
-          {/* Center Routes */}
-          <Route path="/center" element={<CenterIntro />} />
-          <Route path="/greeting" element={<Greeting />} />
-          <Route path="/location" element={<Location />} />
-          
-          {/* Service Routes */}
-          <Route path="/long-term-care" element={<LongTermCare />} />
-          <Route path="/home-care" element={<HomeCare />} />
-          <Route path="/bath-service" element={<BathService />} />
-          
-          {/* Community Routes */}
-          <Route path="/news" element={<News />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/inquiry" element={<Inquiry />} />
-          <Route path="/jobs" element={<Jobs />} />
-          
-          {/* Support Routes */}
-          <Route path="/donation" element={<Donation />} />
-          <Route path="/volunteer" element={<Volunteer />} />
-        </Routes>
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Main />} />
+            <Route path="/center/greeting" element={<Greeting />} />
+            <Route path="/center/location" element={<Location />} />
+            <Route path="/center/contact" element={<Contact />} />
+            <Route path="/services/intro" element={<ServiceIntro />} />
+            <Route path="/application/free" element={<FreeApplication />} />
+            <Route path="/community" element={<Community />} />
+            <Route path="/support" element={<Support />} />
+          </Routes>
+        </main>
         <Footer />
       </div>
     </Router>
