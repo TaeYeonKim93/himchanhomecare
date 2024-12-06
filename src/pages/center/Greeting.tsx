@@ -12,7 +12,7 @@ export default function Greeting() {
           className="text-center mb-12"
         >
           <h1 className="text-4xl font-bold text-gray-900 mb-4">인사말</h1>
-          <p className="text-lg text-gray-600">따뜻한 마음으로 모시겠습니다</p>
+          <p className="text-lg text-gray-600">어르신을 내 부모님같이 모시겠습니다</p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-12">
