@@ -29,7 +29,7 @@ export default function Contact() {
                 <div className="ml-4">
                   <h3 className="text-lg font-medium text-gray-900 tracking-wide">주소</h3>
                   <p className="mt-1 text-gray-600 tracking-wide leading-relaxed">
-                    경기 고양시 일산서구 일산로 517 뉴일산코아 110호
+                    경기 고양시 일산서구 일산로 517 뉴일산코아 109호
                   </p>
                 </div>
               </motion.div>

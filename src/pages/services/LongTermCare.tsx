@@ -25,7 +25,7 @@ export default function LongTermCare() {
           >
             <h2 className="text-2xl font-bold text-gray-900">제도 소개</h2>
             <p className="text-gray-600 leading-relaxed">
-              노인장기요양보험제도는 고령이나 노인성 질병 등으로 일상생활을 혼자서 수행하기 
+              노인장기요양보험제도는 고령이나 노인성 질환 등으로 일상생활을 혼자서 수행하기 
               어려운 노인들에게 신체활동 또는 가사지원 등의 장기요양급여를 제공하는 사회보험제도입니다.
             </p>
 
@@ -82,7 +82,7 @@ export default function LongTermCare() {
                 </li>
                 <li className="flex items-center space-x-2">
                   <AlertCircle className="w-5 h-5 text-blue-600" />
-                  <span className="text-gray-600">65세 미만의 노인성 질병이 있는 자</span>
+                  <span className="text-gray-600">65세 미만의 노인성 질환이 있는 자</span>
                 </li>
               </ul>
             </div>

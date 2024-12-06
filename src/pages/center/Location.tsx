@@ -28,7 +28,7 @@ export default function Location() {
                 <MapPin className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
                 <div>
                   <h3 className="text-lg font-semibold mb-1">주소</h3>
-                  <p className="text-gray-600">경기 고양시 일산서구 일산로 517 뉴일산코아 110호</p>
+                  <p className="text-gray-600">경기 고양시 일산서구 일산로 517 뉴일산코아 109호</p>
                 </div>
               </div>
 
