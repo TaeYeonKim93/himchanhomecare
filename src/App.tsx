@@ -32,36 +32,38 @@ function App() {
     <Router>
       <div className="min-h-screen bg-white">
         <Navbar />
-        <Routes>
-          <Route path="/" element={
-            <>
-              <Hero />
-              <Services />
-              <Contact />
-              <Partners />
-            </>
-          } />
-          
-          {/* Center Routes */}
-          <Route path="/center" element={<CenterIntro />} />
-          <Route path="/greeting" element={<Greeting />} />
-          <Route path="/location" element={<Location />} />
-          
-          {/* Service Routes */}
-          <Route path="/long-term-care" element={<LongTermCare />} />
-          <Route path="/home-care" element={<HomeCare />} />
-          <Route path="/bath-service" element={<BathService />} />
-          
-          {/* Community Routes */}
-          <Route path="/news" element={<News />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/inquiry" element={<Inquiry />} />
-          <Route path="/jobs" element={<Jobs />} />
-          
-          {/* Support Routes */}
-          <Route path="/donation" element={<Donation />} />
-          <Route path="/volunteer" element={<Volunteer />} />
-        </Routes>
+        <div className="max-w-[1440px] mx-auto bg-white">
+          <Routes>
+            <Route path="/" element={
+              <>
+                <Hero />
+                <Services />
+                <Contact />
+                <Partners />
+              </>
+            } />
+            
+            {/* Center Routes */}
+            <Route path="/center" element={<CenterIntro />} />
+            <Route path="/greeting" element={<Greeting />} />
+            <Route path="/location" element={<Location />} />
+            
+            {/* Service Routes */}
+            <Route path="/long-term-care" element={<LongTermCare />} />
+            <Route path="/home-care" element={<HomeCare />} />
+            <Route path="/bath-service" element={<BathService />} />
+            
+            {/* Community Routes */}
+            <Route path="/news" element={<News />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/inquiry" element={<Inquiry />} />
+            <Route path="/jobs" element={<Jobs />} />
+            
+            {/* Support Routes */}
+            <Route path="/donation" element={<Donation />} />
+            <Route path="/volunteer" element={<Volunteer />} />
+          </Routes>
+        </div>
         <Footer />
       </div>
     </Router>

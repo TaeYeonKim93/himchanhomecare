@@ -1,6 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { MapPin, Clock, Phone, Bus, Train } from 'lucide-react';
 import { motion } from 'framer-motion';
+
+declare global {
+  interface Window {
+    naver: any;
+  }
+}
+
+const COORDINATES = {
+  lat: 37.6764273,
+  lng: 126.7700057
+};
 
 export default function Contact() {
   const fadeIn = {
@@ -8,9 +19,53 @@ export default function Contact() {
     visible: { opacity: 1, y: 0 }
   };
 
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = `https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${import.meta.env.VITE_NAVER_MAP_CLIENT_ID}`;
+    script.async = true;
+    script.onload = () => {
+      const mapOptions = {
+        center: new window.naver.maps.LatLng(COORDINATES.lat, COORDINATES.lng),
+        zoom: 17,
+      };
+      const map = new window.naver.maps.Map('contact-map', mapOptions);
+      
+      // 마커 추가
+      const marker = new window.naver.maps.Marker({
+        position: new window.naver.maps.LatLng(COORDINATES.lat, COORDINATES.lng),
+        map: map
+      });
+
+      // 정보창 추가
+      const infoWindow = new window.naver.maps.InfoWindow({
+        content: '<div style="padding:10px;min-width:200px;line-height:150%;">' +
+                '<h4 style="margin-top:5px;">힘찬홈케어</h4>' +
+                '<p>경기 고양시 일산서구 일산로 517<br>뉴일산코아 109호</p>' +
+                '</div>'
+      });
+
+      // 마커 클릭시 정보창 표시
+      window.naver.maps.Event.addListener(marker, 'click', () => {
+        if (infoWindow.getMap()) {
+          infoWindow.close();
+        } else {
+          infoWindow.open(map, marker);
+        }
+      });
+    };
+    document.head.appendChild(script);
+
+    return () => {
+      const scriptElement = document.querySelector(`script[src^="https://openapi.map.naver.com"]`);
+      if (scriptElement) {
+        document.head.removeChild(scriptElement);
+      }
+    };
+  }, []);
+
   return (
     <section id="contact" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <motion.div
             initial="hidden"
@@ -86,16 +141,7 @@ export default function Contact() {
             transition={{ duration: 0.6 }}
             className="bg-gray-100 rounded-lg p-6"
           >
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3158.8436916432386!2d126.76999631531291!3d37.68294297977001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c855df4445555%3A0x6d6c6d6c6d6c6d6c!2z7J207IKw66-86rWt7KCE7JWE!5e0!3m2!1sko!2skr!4v1620000000000!5m2!1sko!2skr"
-              width="100%"
-              height="450"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="rounded-lg"
-            ></iframe>
+            <div id="contact-map" className="w-full h-[450px] rounded-lg"></div>
           </motion.div>
         </div>
       </div>

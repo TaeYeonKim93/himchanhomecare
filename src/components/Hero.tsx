@@ -53,7 +53,7 @@ export default function Hero() {
           className="text-center"
         >
           <h1 className="hero-title text-4xl font-extrabold text-white sm:text-5xl lg:text-6xl">
-            따뜻한 마음으로 모시겠습니다
+            따뜻한 마음으로 정성껏 모시겠습니다
           </h1>
           <motion.div 
             initial={{ scale: 0.8, opacity: 0 }}

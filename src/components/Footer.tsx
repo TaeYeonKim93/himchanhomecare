@@ -1,11 +1,11 @@
 import React from 'react';
-import { Phone, Mail, MapPin } from 'lucide-react';
+import { Building2, User, FileText, MapPin, Phone, Printer, Mail } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function Footer() {
   return (
     <footer className="bg-gray-50 border-t border-gray-200">
-      <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <motion.div 
           initial={{ y: 20, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
@@ -22,24 +22,41 @@ export default function Footer() {
           </div>
           
           <div className="border-t border-gray-200 pt-8">
-            <div className="flex flex-col items-center space-y-4">
-              <div className="flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-6 text-gray-600">
-                <div className="flex items-center">
-                  <Phone className="h-4 w-4 mr-2" />
-                  <span>031-912-1997</span>
-                </div>
-                <div className="flex items-center">
-                  <Mail className="h-4 w-4 mr-2" />
-                  <span>ycs4218@hanmail.net</span>
-                </div>
-              </div>
-              <div className="flex items-center text-gray-600">
-                <MapPin className="h-4 w-4 mr-2 flex-shrink-0" />
-                <span className="text-center">경기 고양시 일산서구 일산로 517 뉴일산코아 109호</span>
-              </div>
-              <div className="text-gray-600">
+            <div className="flex flex-wrap justify-center items-center gap-2 text-gray-600 text-sm">
+              <span className="flex items-center">
+                <Building2 className="h-4 w-4 mr-1" />
+                힘찬홈케어
+              </span>
+              <span className="hidden sm:inline">|</span>
+              <span className="flex items-center">
+                <User className="h-4 w-4 mr-1" />
                 대표: 양창숙
-              </div>
+              </span>
+              <span className="hidden sm:inline">|</span>
+              <span className="flex items-center">
+                <FileText className="h-4 w-4 mr-1" />
+                고유번호: 884-80-00259
+              </span>
+              <span className="hidden sm:inline">|</span>
+              <span className="flex items-center">
+                <MapPin className="h-4 w-4 mr-1" />
+                경기 고양시 일산서구 일산로 517 뉴일산코아 109호
+              </span>
+              <span className="hidden sm:inline">|</span>
+              <span className="flex items-center">
+                <Phone className="h-4 w-4 mr-1" />
+                Tel: 031-912-1997
+              </span>
+              <span className="hidden sm:inline">|</span>
+              <span className="flex items-center">
+                <Printer className="h-4 w-4 mr-1" />
+                Fax: 031-912-1998
+              </span>
+              <span className="hidden sm:inline">|</span>
+              <span className="flex items-center">
+                <Mail className="h-4 w-4 mr-1" />
+                Email: ycs4218@hanmail.net
+              </span>
             </div>
           </div>
 
