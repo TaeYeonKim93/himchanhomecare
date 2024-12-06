@@ -12,13 +12,16 @@ export default function Footer() {
           viewport={{ once: true }}
           className="flex flex-col space-y-8"
         >
-          <div className="flex items-center justify-center">
-            <img
-              src="/images/logo.svg"
-              alt="힘찬홈케어 로고"
-              className="h-8 w-auto"
-            />
-            <span className="ml-3 text-2xl font-bold text-gray-900">힘찬홈케어</span>
+          <div className="flex flex-col items-center justify-center space-y-2">
+            <div className="flex items-center">
+              <img
+                src="/images/logo.svg"
+                alt="힘찬홈케어 로고"
+                className="h-8 w-auto"
+              />
+              <span className="ml-3 text-2xl font-bold text-gray-900">힘찬홈케어</span>
+            </div>
+            <p className="text-gray-600 font-medium text-lg">어르신을 내 부모님같이 모시겠습니다</p>
           </div>
           
           <div className="border-t border-gray-200 pt-8">
