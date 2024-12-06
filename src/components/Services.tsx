@@ -99,7 +99,7 @@ export default function Services() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl font-bold text-gray-900">서비스 안내</h2>
+          <h2 className="text-4xl font-bold text-gray-900">서비스 안내</h2>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
