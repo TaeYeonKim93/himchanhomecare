@@ -2,7 +2,6 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import fs from 'fs';
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
   optimizeDeps: {
@@ -14,6 +13,6 @@ export default defineConfig({
       cert: fs.readFileSync('/etc/letsencrypt/live/himchan.hopto.org/fullchain.pem'),
     },
     host: true,
-    port: 443
+    port: 444  // 443에서 444로 변경
   },
 });
