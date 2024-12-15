@@ -16,7 +16,7 @@ import BathService from './pages/services/BathService';
 import FreeApplication from './pages/application/FreeApplication';
 import Community from './pages/community/Community';
 import Gallery from './pages/community/Gallery';
-import Jobs from './pages/community/Jobs';
+import Board from './pages/community/Board';
 import Volunteer from './pages/volunteer/Volunteer';
 
 function App() {
@@ -46,7 +46,7 @@ function App() {
             <Route path="/community">
               <Route index element={<Community />} />
               <Route path="gallery" element={<Gallery />} />
-              <Route path="jobs" element={<Jobs />} />
+              <Route path="board" element={<Board />} />
             </Route>
             <Route path="/volunteer" element={<Volunteer />} />
           </Routes>

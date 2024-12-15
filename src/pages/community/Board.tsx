@@ -1,54 +1,57 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Search, ChevronRight } from 'lucide-react';
+import { Search, MessageCircle, Eye, ChevronRight } from 'lucide-react';
 
-interface Notice {
+interface Post {
   id: number;
-  category: string;
   title: string;
+  author: string;
   date: string;
   views: number;
-  isImportant?: boolean;
+  comments: number;
 }
 
-export default function Community() {
-  const notices: Notice[] = [
+export default function Board() {
+  const posts: Post[] = [
     {
       id: 1,
-      category: '공지',
-      title: '2024년 요양보호사 정기교육 일정 안내',
+      title: '요양보호사 일하면서 보람찼던 순간',
+      author: '행복한마음',
       date: '2024.03.20',
-      views: 128,
-      isImportant: true
+      views: 45,
+      comments: 12
     },
     {
       id: 2,
-      category: '공지',
-      title: '코로나19 예방을 위한 방역수칙 안내',
-      date: '2024.03.15',
-      views: 95,
-      isImportant: true
+      title: '어르신 케어 꿀팁 공유해요',
+      author: '사랑드림',
+      date: '2024.03.19',
+      views: 68,
+      comments: 15
     },
     {
       id: 3,
-      category: '안내',
-      title: '3월 무료 방문요양 상담 신청 안내',
-      date: '2024.03.10',
-      views: 67
+      title: '신입 요양보호사 궁금한 점 있어요',
+      author: '새내기케어',
+      date: '2024.03.18',
+      views: 92,
+      comments: 8
     },
     {
       id: 4,
-      category: '안내',
-      title: '요양보호사 추가 모집 공고',
-      date: '2024.03.05',
-      views: 142
+      title: '요양보호사 자격증 취득 후기',
+      author: '열심히공부',
+      date: '2024.03.17',
+      views: 156,
+      comments: 23
     },
     {
       id: 5,
-      category: '안내',
-      title: '장기요양등급 신청 무료 대행 서비스 안내',
-      date: '2024.03.01',
-      views: 89
+      title: '어르신과의 즐거운 산책 이야기',
+      author: '따뜻한마음',
+      date: '2024.03.16',
+      views: 78,
+      comments: 9
     }
   ];
 
@@ -60,8 +63,13 @@ export default function Community() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h1 className="text-3xl font-bold text-gray-900 mb-8">공지사항</h1>
-          
+          <div className="flex justify-between items-center mb-8">
+            <h1 className="text-3xl font-bold text-gray-900">자유게시판</h1>
+            <button className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+              글쓰기
+            </button>
+          </div>
+
           {/* 검색 영역 */}
           <div className="mb-8">
             <div className="flex gap-4">
@@ -69,6 +77,7 @@ export default function Community() {
                 <option>전체</option>
                 <option>제목</option>
                 <option>내용</option>
+                <option>작성자</option>
               </select>
               <div className="relative flex-1">
                 <input
@@ -84,31 +93,34 @@ export default function Community() {
             </div>
           </div>
 
-          {/* 공지사항 목록 */}
+          {/* 게시글 목록 */}
           <div className="border-t border-gray-200">
-            {notices.map((notice) => (
+            {posts.map((post) => (
               <motion.div
-                key={notice.id}
+                key={post.id}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className={`border-b border-gray-200 hover:bg-gray-50 transition-colors ${
-                  notice.isImportant ? 'bg-blue-50' : ''
-                }`}
+                className="border-b border-gray-200 hover:bg-gray-50 transition-colors"
               >
                 <div className="flex items-center py-4 px-4 cursor-pointer">
-                  <span className={`text-sm px-3 py-1 rounded-full ${
-                    notice.isImportant 
-                      ? 'bg-blue-100 text-blue-800' 
-                      : 'bg-gray-100 text-gray-600'
-                  }`}>
-                    {notice.category}
-                  </span>
-                  <div className="flex-1 ml-4">
-                    <h3 className="text-lg text-gray-900">{notice.title}</h3>
+                  <div className="flex-1">
+                    <h3 className="text-lg text-gray-900">{post.title}</h3>
+                    <div className="mt-1 text-sm text-gray-500">
+                      {post.author}
+                    </div>
                   </div>
-                  <div className="text-sm text-gray-500 mr-8">{notice.date}</div>
-                  <div className="text-sm text-gray-500">조회 {notice.views}</div>
-                  <ChevronRight className="ml-4 w-5 h-5 text-gray-400" />
+                  <div className="flex items-center space-x-6 text-sm text-gray-500">
+                    <div className="flex items-center">
+                      <Eye className="w-4 h-4 mr-1" />
+                      {post.views}
+                    </div>
+                    <div className="flex items-center">
+                      <MessageCircle className="w-4 h-4 mr-1" />
+                      {post.comments}
+                    </div>
+                    <div>{post.date}</div>
+                    <ChevronRight className="w-5 h-5 text-gray-400" />
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -138,4 +150,4 @@ export default function Community() {
       </div>
     </div>
   );
-} 
+}

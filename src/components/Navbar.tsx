@@ -35,7 +35,7 @@ const menuItems = [
     submenu: [
       { title: '공지사항', link: '/community' },
       { title: '활동소식', link: '/community/gallery' },
-      { title: '자유게시판', link: '/community/jobs' }
+      { title: '자유게시판', link: '/community/board' }
     ]
   },
   {
