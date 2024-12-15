@@ -27,7 +27,7 @@ const menuItems = [
   },
   {
     title: '무료등급신청대행',
-    link: '/free-application',
+    link: '/application/free',
     submenu: null
   },
   {
