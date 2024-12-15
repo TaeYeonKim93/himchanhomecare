@@ -105,8 +105,8 @@ export default function Services() {
   };
 
   return (
-    <section id="services" className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="services" className="py-20 bg-gray-50 w-full">
+      <div className="w-full mx-auto px-4 sm:px-6 lg:container lg:px-8">
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
