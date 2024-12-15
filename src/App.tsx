@@ -8,6 +8,7 @@ import Main from './pages/Main';
 import CenterIntro from './pages/center/CenterIntro';
 import Greeting from './pages/center/Greeting';
 import Location from './pages/center/Location';
+import Contact from './pages/center/Contact';
 import ServiceIntro from './pages/services/ServiceIntro';
 import FreeApplication from './pages/application/FreeApplication';
 import Community from './pages/community/Community';
@@ -26,6 +27,7 @@ function App() {
               <Route path="intro" element={<CenterIntro />} />
               <Route path="greeting" element={<Greeting />} />
               <Route path="location" element={<Location />} />
+              <Route path="contact" element={<Contact />} />
             </Route>
             <Route path="/services">
               <Route index element={<ServiceIntro />} />
