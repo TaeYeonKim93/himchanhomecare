@@ -37,7 +37,7 @@ export default function Volunteer() {
       frequency: '상시',
       location: '힘찬홈케어 센터',
       beneficiaries: '지역주민',
-      description: '장기요양등급 신��과 요양서비스에 대한 전문적인 상담을 무료로 제공하며, 필요한 경우 신청을 도와드립니다.',
+      description: '장기요양등급 신청과 요양서비스에 대한 전문적인 상담을 무료로 제공하며, 필요한 경우 신청을 도와드립니다.',
       impact: '월평균 50건의 무료상담 진행'
     },
     {
