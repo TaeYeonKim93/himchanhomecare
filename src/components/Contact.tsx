@@ -64,8 +64,8 @@ export default function Contact() {
   }, []);
 
   return (
-    <section id="contact" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-20 bg-white w-full">
+      <div className="w-full mx-auto px-4 sm:px-6 lg:container lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <motion.div
             initial="hidden"
@@ -94,7 +94,7 @@ export default function Contact() {
               >
                 <Clock className="h-6 w-6 text-rose-600 mt-1" />
                 <div className="ml-4">
-                  <h3 className="text-lg font-medium text-gray-900 tracking-wide">영업시간</h3>
+                  <h3 className="text-lg font-medium text-gray-900 tracking-wide">영��시간</h3>
                   <p className="mt-1 text-gray-600 tracking-wide leading-relaxed">매일 운영 (22:00 종료)</p>
                 </div>
               </motion.div>

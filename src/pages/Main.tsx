@@ -6,11 +6,13 @@ import Partners from '../components/Partners';
 
 export default function Main() {
   return (
-    <div>
+    <div className="w-full">
       <Hero />
-      <Services />
-      <Contact />
-      <Partners />
+      <div className="w-full">
+        <Services />
+        <Contact />
+        <Partners />
+      </div>
     </div>
   );
 } 
