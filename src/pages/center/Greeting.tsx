@@ -32,7 +32,7 @@ export default function Greeting() {
             <div className="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-sm p-4 rounded-lg shadow-lg">
               <div className="flex items-center space-x-2 mb-2">
                 <Award className="w-6 h-6 text-yellow-500" />
-                <p className="font-bold text-gray-900">전국 장기요양평가 2회 연속 최우수기관 A등급</p>
+                <p className="font-bold text-gray-900">전국 재가 장기요양기관 평가 2회 연속 최우수기관 A등급</p>
               </div>
               <div className="flex flex-wrap gap-4 text-sm">
                 <span className="bg-blue-50 text-blue-700 px-3 py-1 rounded-full">2019년 A등급</span>
@@ -68,6 +68,12 @@ export default function Greeting() {
                 <p className="text-gray-600 leading-relaxed">
                   가족처럼 편안하게 대화하고, 부모님처럼 정성껏 돌보며, 
                   어르신들의 일상에 기쁨과 활력을 더하는 것이 저희의 사명입니다.
+                </p>
+
+                <p className="text-gray-600 leading-relaxed">
+                  앞으로도 저희 힘찬홈케어는 어르신들의 건강하고 행복한 노후를 위해
+                  끊임없이 연구하고 발전하며, 최상의 요양 서비스를 제공하기 위해 
+                  항상 최선을 다하겠습니다.
                 </p>
               </div>
 
