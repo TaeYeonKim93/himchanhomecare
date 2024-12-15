@@ -29,7 +29,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <div className="relative bg-white pt-16 w-full">
+    <div className="relative bg-white pt-16">
       <div className="absolute inset-0 overflow-hidden">
         <AnimatePresence mode="wait">
           <motion.img
@@ -45,7 +45,7 @@ export default function Hero() {
         </AnimatePresence>
         <div className="absolute inset-0 bg-gray-500 mix-blend-multiply opacity-60"></div>
       </div>
-      <div className="relative w-full mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:container lg:px-8">
+      <div className="relative max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8">
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}

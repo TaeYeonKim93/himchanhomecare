@@ -130,10 +130,11 @@ export default function Navbar() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ type: "spring", stiffness: 100 }}
-        className={`fixed w-full z-50 transition-all duration-300 bg-white shadow-md overflow-x-hidden`}
-        style={{ transform: isScrolled ? `translateY(0px)` : 'none' }}
+        className={`fixed w-full z-50 transition-all duration-300 ${
+          isScrolled || !isMainPage ? 'bg-white shadow-md' : 'bg-transparent'
+        }`}
       >
-        <div className="w-full mx-auto px-4 sm:px-6 lg:container lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-20">
             <Link to="/" className="flex items-center space-x-3">
               <Logo className="h-12 w-12" />
