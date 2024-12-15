@@ -35,7 +35,6 @@ const menuItems = [
     submenu: [
       { title: '센터소식', link: '/news' },
       { title: '힘찬 사진첩', link: '/gallery' },
-      { title: '문의하기', link: '/inquiry' },
       { title: '요양보호사구인구직', link: '/jobs' },
       { title: '공지사항', link: '/community' },
       { title: '활동소식', link: '/community' },
