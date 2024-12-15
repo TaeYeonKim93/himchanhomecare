@@ -66,7 +66,7 @@ export default function Contact() {
                   <Mail className="w-6 h-6 text-blue-500" />
                   <div>
                     <p className="font-medium text-gray-900">이메일 문의</p>
-                    <p className="text-gray-600">himchan@homecare.com</p>
+                    <p className="text-gray-600">ycs4218@hanmail.net</p>
                   </div>
                 </div>
 
