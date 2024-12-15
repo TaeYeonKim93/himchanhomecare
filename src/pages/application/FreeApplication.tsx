@@ -58,7 +58,7 @@ export default function FreeApplication() {
                 </div>
                 <div className="ml-4">
                   <h3 className="text-lg font-semibold">4. 결과안내</h3>
-                  <p className="text-gray-600">등급판정 결과를 안내해 드립니다.</p>
+                  <p className="text-gray-600">등급판정 결과는 국민건강보험공단에서 안내해 드립니다.</p>
                 </div>
               </div>
             </div>

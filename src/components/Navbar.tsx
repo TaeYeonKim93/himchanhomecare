@@ -22,8 +22,7 @@ const menuItems = [
       { title: '노인장기요양제도', link: '/services/long-term-care' },
       { title: '방문요양서비스', link: '/services/home-care' },
       { title: '방문목욕서비스', link: '/services/bath-service' },
-      { title: '서비스소개', link: '/services/intro' },
-      { title: '무료등급신청대행', link: '/application/free' }
+      { title: '서비스소개', link: '/services/intro' }
     ]
   },
   {
