@@ -1,48 +1,32 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Phone, Mail, MessageSquare } from 'lucide-react';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import * as z from 'zod';
-import { Button } from '@/components/ui/button';
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { toast } from 'sonner';
-
-const formSchema = z.object({
-  name: z.string().min(2, '이름을 입력해주세요'),
-  phone: z.string().min(10, '올바른 전화번호를 입력해주세요'),
-  email: z.string().email('올바른 이메일 주소를 입력해주세요'),
-  message: z.string().min(10, '문의 내용을 10자 이상 입력해주세요'),
-});
 
 export default function Contact() {
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      name: '',
-      phone: '',
-      email: '',
-      message: '',
-    },
+  const [form, setForm] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    message: ''
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
     // 여기에 실제 폼 제출 로직 구현
-    console.log(values);
-    toast.success('상담 문의가 접수되었습니다. 빠른 시일 내에 연락드리겠습니다.');
-    form.reset();
-  }
+    console.log('Form submitted:', form);
+    alert('상담 문의가 접수되었습니다. 빠른 시일 내에 연락드리겠습니다.');
+    setForm({ name: '', phone: '', email: '', message: '' });
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setForm(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
 
   return (
     <div className="pt-20">
@@ -74,7 +58,7 @@ export default function Contact() {
                   <Phone className="w-6 h-6 text-blue-500" />
                   <div>
                     <p className="font-medium text-gray-900">전화 상담</p>
-                    <p className="text-gray-600">031-xxx-xxxx</p>
+                    <p className="text-gray-600">031-912-1997</p>
                   </div>
                 </div>
 
@@ -82,7 +66,7 @@ export default function Contact() {
                   <Mail className="w-6 h-6 text-blue-500" />
                   <div>
                     <p className="font-medium text-gray-900">이메일 문의</p>
-                    <p className="text-gray-600">himchan@example.com</p>
+                    <p className="text-gray-600">himchan@homecare.com</p>
                   </div>
                 </div>
 
@@ -105,73 +89,78 @@ export default function Contact() {
             <div className="bg-white p-6 rounded-lg shadow-md">
               <h2 className="text-2xl font-bold text-gray-900 mb-6">온라인 상담</h2>
               
-              <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                  <FormField
-                    control={form.control}
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                    이름
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
                     name="name"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>이름</FormLabel>
-                        <FormControl>
-                          <Input placeholder="이름을 입력해주세요" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
+                    value={form.name}
+                    onChange={handleChange}
+                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2 border"
+                    required
+                    placeholder="이름을 입력해주세요"
                   />
+                </div>
 
-                  <FormField
-                    control={form.control}
+                <div>
+                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
+                    연락처
+                  </label>
+                  <input
+                    type="tel"
+                    id="phone"
                     name="phone"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>연락처</FormLabel>
-                        <FormControl>
-                          <Input placeholder="전화번호를 입력해주세요" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
+                    value={form.phone}
+                    onChange={handleChange}
+                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2 border"
+                    required
+                    placeholder="전화번호를 입력해주세요"
                   />
+                </div>
 
-                  <FormField
-                    control={form.control}
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                    이메일
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
                     name="email"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>이메일</FormLabel>
-                        <FormControl>
-                          <Input placeholder="이메일 주소를 입력해주세요" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
+                    value={form.email}
+                    onChange={handleChange}
+                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2 border"
+                    required
+                    placeholder="이메일 주소를 입력해주세요"
                   />
+                </div>
 
-                  <FormField
-                    control={form.control}
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-700">
+                    문의 내용
+                  </label>
+                  <textarea
+                    id="message"
                     name="message"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>문의 내용</FormLabel>
-                        <FormControl>
-                          <Textarea 
-                            placeholder="문의하실 내용을 자세히 적어주세요" 
-                            className="h-32"
-                            {...field} 
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
+                    rows={4}
+                    value={form.message}
+                    onChange={handleChange}
+                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2 border"
+                    required
+                    placeholder="문의하실 내용을 자세히 적어주세요"
                   />
+                </div>
 
-                  <Button type="submit" className="w-full">
-                    상담 신청하기
-                  </Button>
-                </form>
-              </Form>
+                <button
+                  type="submit"
+                  className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                >
+                  상담 신청하기
+                </button>
+              </form>
             </div>
           </motion.div>
         </div>
