@@ -33,24 +33,15 @@ const menuItems = [
     title: '커뮤니티',
     link: '/community',
     submenu: [
-      { title: '센터소식', link: '/news' },
-      { title: '힘찬 사진첩', link: '/gallery' },
-      { title: '요양보호사구인구직', link: '/jobs' },
       { title: '공지사항', link: '/community' },
-      { title: '활동소식', link: '/community' },
-      { title: '갤러리', link: '/community' },
-      { title: '자유게시판', link: '/community' }
+      { title: '활동소식', link: '/community/gallery' },
+      { title: '자유게시판', link: '/community/jobs' }
     ]
   },
   {
-    title: '후원&봉사',
-    link: '/support',
-    submenu: [
-      { title: '후원안내', link: '/donation' },
-      { title: '봉사안내', link: '/volunteer' },
-      { title: '후원안내', link: '/support' },
-      { title: '자원봉사', link: '/support' }
-    ]
+    title: '봉사활동',
+    link: '/volunteer',
+    submenu: null
   }
 ];
 
