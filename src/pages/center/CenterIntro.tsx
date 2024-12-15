@@ -40,7 +40,7 @@ export default function CenterIntro() {
           >
             <h2 className="text-2xl font-bold text-gray-900 mb-4">센터 특징</h2>
             <p className="text-gray-600 leading-relaxed">
-              20년 이상의 풍부한 경험을 바탕으로 전문적이고 체계적인 
+              15년 이상의 풍부한 경험을 바탕으로 전문적이고 체계적인 
               요양 서비스를 제공합니다. 정기적인 교육과 철저한 위생 관리로 
               어르신들이 안전하고 편안하게 생활하실 수 있도록 
               최선을 다하고 있습니다.
@@ -59,7 +59,7 @@ export default function CenterIntro() {
               <Building2 className="w-8 h-8 text-rose-600" />
             </div>
             <h3 className="text-lg font-semibold text-gray-900 mb-2">전문성</h3>
-            <p className="text-gray-600">20년 이상의 요양 서비스 경험</p>
+            <p className="text-gray-600">15년 이상의 요양 서비스 경험</p>
           </motion.div>
 
           <motion.div
