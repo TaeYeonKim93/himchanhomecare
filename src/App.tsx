@@ -10,6 +10,9 @@ import Greeting from './pages/center/Greeting';
 import Location from './pages/center/Location';
 import Contact from './pages/center/Contact';
 import ServiceIntro from './pages/services/ServiceIntro';
+import LongTermCare from './pages/services/LongTermCare';
+import HomeCare from './pages/services/HomeCare';
+import BathService from './pages/services/BathService';
 import FreeApplication from './pages/application/FreeApplication';
 import Community from './pages/community/Community';
 import Support from './pages/support/Support';
@@ -32,6 +35,9 @@ function App() {
             <Route path="/services">
               <Route index element={<ServiceIntro />} />
               <Route path="intro" element={<ServiceIntro />} />
+              <Route path="long-term-care" element={<LongTermCare />} />
+              <Route path="home-care" element={<HomeCare />} />
+              <Route path="bath-service" element={<BathService />} />
             </Route>
             <Route path="/application">
               <Route index element={<FreeApplication />} />
