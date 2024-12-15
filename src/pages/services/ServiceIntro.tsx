@@ -45,12 +45,11 @@ export default function ServiceIntro() {
             <Bath className="w-12 h-12 text-blue-500 mb-4" />
             <h3 className="text-xl font-bold text-gray-900 mb-4">방문목욕</h3>
             <p className="text-gray-600 mb-4">
-              전문 장비를 갖춘 차량으로 방문하여 안전하고 편안한 목욕 서비스를 제공합니다.
+              안전하고 편안한 목욕 서비스를 제공합니다.
             </p>
             <ul className="text-gray-600 space-y-2">
               <li>• 목욕 전 건강상태 체크</li>
               <li>• 전문 요양보호사 2인 1조</li>
-              <li>• 목욕 전용 차량 이용</li>
               <li>• 안전하고 편안한 목욕 도움</li>
             </ul>
           </motion.div>

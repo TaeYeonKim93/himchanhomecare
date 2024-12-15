@@ -35,11 +35,11 @@ const services = [
   },
   {
     title: '방문목욕',
-    shortDescription: '전문 장비를 갖춘 차량으로 방문하여 안전하고 편안한 목욕 서비스를 제공합니다.',
+    shortDescription: '안전하고 편안한 목욕 서비스를 제공합니다.',
     icon: Bath,
     link: '',
     content: {
-      description: '목욕 전용 차량과 전문 장비를 이용하여 거동이 불편한 어르신의 가정을 방문해 전문적인 목욕 서비스를 제공합니다.',
+      description: '거동이 불편한 어르신의 가정을 방문해 전문적인 목욕 서비스를 제공합니다.',
       pricing: {
         title: '2025년 방문목욕 수가',
         details: [
@@ -51,7 +51,6 @@ const services = [
       },
       details: [
         '목욕 전 건강상태 체크',
-        '목욕 전용 차량 이용',
         '전문 요양보호사 2인 1조 서비스 제공',
         '안전하고 편안한 목욕 도움',
         '깨끗한 옷 갈아입히기',
