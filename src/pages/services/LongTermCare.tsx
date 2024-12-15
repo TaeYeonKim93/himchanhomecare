@@ -30,22 +30,79 @@ export default function LongTermCare() {
             </p>
 
             <div className="bg-blue-50 p-6 rounded-lg">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">2025년 수가 안내</h3>
-              <div className="space-y-3">
-                <div className="flex justify-between items-center">
-                  <span className="text-gray-600">방문요양(60분)</span>
-                  <span className="font-medium">24,580원</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-gray-600">방문목욕(차량)</span>
-                  <span className="font-medium">86,480원</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-gray-600">방문간호(60분)</span>
-                  <span className="font-medium">52,930원</span>
-                </div>
-                <p className="text-sm text-gray-500 mt-3">* 본인부담금 15% 별도</p>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">2025년 방문요양 수가 안내</h3>
+              <div className="overflow-x-auto">
+                <table className="min-w-full bg-white rounded-lg overflow-hidden">
+                  <thead className="bg-blue-600 text-white">
+                    <tr>
+                      <th className="px-4 py-3 text-left">방문당 시간</th>
+                      <th className="px-4 py-3 text-right">수가</th>
+                      <th className="px-4 py-3 text-right">15% 부담</th>
+                      <th className="px-4 py-3 text-right">9% 부담</th>
+                      <th className="px-4 py-3 text-right">6% 부담</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-gray-200">
+                    <tr className="hover:bg-gray-50">
+                      <td className="px-4 py-3 text-gray-900">30분</td>
+                      <td className="px-4 py-3 text-right font-medium">16,940원</td>
+                      <td className="px-4 py-3 text-right text-gray-600">2,541원</td>
+                      <td className="px-4 py-3 text-right text-gray-600">1,525원</td>
+                      <td className="px-4 py-3 text-right text-gray-600">1,016원</td>
+                    </tr>
+                    <tr className="hover:bg-gray-50">
+                      <td className="px-4 py-3 text-gray-900">60분</td>
+                      <td className="px-4 py-3 text-right font-medium">24,580원</td>
+                      <td className="px-4 py-3 text-right text-gray-600">3,687원</td>
+                      <td className="px-4 py-3 text-right text-gray-600">2,212원</td>
+                      <td className="px-4 py-3 text-right text-gray-600">1,475원</td>
+                    </tr>
+                    <tr className="hover:bg-gray-50">
+                      <td className="px-4 py-3 text-gray-900">90분</td>
+                      <td className="px-4 py-3 text-right font-medium">33,120원</td>
+                      <td className="px-4 py-3 text-right text-gray-600">4,968원</td>
+                      <td className="px-4 py-3 text-right text-gray-600">2,981원</td>
+                      <td className="px-4 py-3 text-right text-gray-600">1,987원</td>
+                    </tr>
+                    <tr className="hover:bg-gray-50">
+                      <td className="px-4 py-3 text-gray-900">120분</td>
+                      <td className="px-4 py-3 text-right font-medium">42,160원</td>
+                      <td className="px-4 py-3 text-right text-gray-600">6,324원</td>
+                      <td className="px-4 py-3 text-right text-gray-600">3,794원</td>
+                      <td className="px-4 py-3 text-right text-gray-600">2,530원</td>
+                    </tr>
+                    <tr className="hover:bg-gray-50">
+                      <td className="px-4 py-3 text-gray-900">150분</td>
+                      <td className="px-4 py-3 text-right font-medium">49,160원</td>
+                      <td className="px-4 py-3 text-right text-gray-600">7,374원</td>
+                      <td className="px-4 py-3 text-right text-gray-600">4,424원</td>
+                      <td className="px-4 py-3 text-right text-gray-600">2,950원</td>
+                    </tr>
+                    <tr className="hover:bg-gray-50">
+                      <td className="px-4 py-3 text-gray-900">180분</td>
+                      <td className="px-4 py-3 text-right font-medium">55,350원</td>
+                      <td className="px-4 py-3 text-right text-gray-600">8,303원</td>
+                      <td className="px-4 py-3 text-right text-gray-600">4,982원</td>
+                      <td className="px-4 py-3 text-right text-gray-600">3,321원</td>
+                    </tr>
+                    <tr className="hover:bg-gray-50">
+                      <td className="px-4 py-3 text-gray-900">210분</td>
+                      <td className="px-4 py-3 text-right font-medium">61,670원</td>
+                      <td className="px-4 py-3 text-right text-gray-600">9,251원</td>
+                      <td className="px-4 py-3 text-right text-gray-600">5,550원</td>
+                      <td className="px-4 py-3 text-right text-gray-600">3,700원</td>
+                    </tr>
+                    <tr className="hover:bg-gray-50">
+                      <td className="px-4 py-3 text-gray-900">240분</td>
+                      <td className="px-4 py-3 text-right font-medium">68,030원</td>
+                      <td className="px-4 py-3 text-right text-gray-600">10,205원</td>
+                      <td className="px-4 py-3 text-right text-gray-600">6,123원</td>
+                      <td className="px-4 py-3 text-right text-gray-600">4,082원</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
+              <p className="text-sm text-gray-500 mt-3">* 본인부담금은 소득 수준에 따라 15%, 9%, 6%로 차등 적용됩니다.</p>
             </div>
           </motion.div>
 
