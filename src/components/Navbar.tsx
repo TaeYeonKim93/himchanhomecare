@@ -29,17 +29,17 @@ const menuItems = [
     link: '/application/free',
     submenu: null
   },
+  // {
+  //   title: '커뮤니티',
+  //   link: '/community',
+  //   submenu: [
+  //     { title: '공지사항', link: '/community' },
+  //     { title: '활동소식', link: '/community/gallery' },
+  //     { title: '자유게시판', link: '/community/board' }
+  //   ]
+  // },
   {
-    title: '커뮤니티',
-    link: '/community',
-    submenu: [
-      { title: '공지사항', link: '/community' },
-      { title: '활동소식', link: '/community/gallery' },
-      { title: '자유게시판', link: '/community/board' }
-    ]
-  },
-  {
-    title: '봉사활동',
+    title: '지역사회봉사',
     link: '/volunteer',
     submenu: null
   }
