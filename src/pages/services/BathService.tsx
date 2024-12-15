@@ -13,7 +13,7 @@ export default function BathService() {
           className="text-center mb-12"
         >
           <h1 className="text-4xl font-bold text-gray-900 mb-4">방문목욕서비스</h1>
-          <p className="text-lg text-gray-600">전문 장비를 갖춘 차량으로 방문하여 안전하고 편안한 목욕 서비스를 제공합니다</p>
+          <p className="text-lg text-gray-600">안전하고 편안한 목욕 서비스를 제공합니다</p>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
@@ -63,10 +63,6 @@ export default function BathService() {
                 </li>
                 <li className="flex items-center space-x-3">
                   <CheckCircle2 className="w-5 h-5 text-green-600" />
-                  <span className="text-gray-600">목욕 전용 차량 구비</span>
-                </li>
-                <li className="flex items-center space-x-3">
-                  <CheckCircle2 className="w-5 h-5 text-green-600" />
                   <span className="text-gray-600">안전하고 편안한 목욕 환경</span>
                 </li>
               </ul>
@@ -110,7 +106,7 @@ export default function BathService() {
               <div className="bg-white p-6 rounded-lg shadow-lg">
                 <Shield className="w-12 h-12 text-green-600 mb-4" />
                 <h3 className="text-xl font-semibold mb-2">안전성</h3>
-                <p className="text-gray-600">전문 장비와 인력으로 안전한 목욕 서비스 제공</p>
+                <p className="text-gray-600">전문 인력으로 안전한 목욕 서비스 제공</p>
               </div>
               <div className="bg-white p-6 rounded-lg shadow-lg">
                 <Heart className="w-12 h-12 text-rose-600 mb-4" />
