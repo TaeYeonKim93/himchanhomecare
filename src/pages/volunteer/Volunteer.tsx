@@ -37,7 +37,7 @@ export default function Volunteer() {
       frequency: '상시',
       location: '힘찬홈케어 센터',
       beneficiaries: '지역주민',
-      description: '장기요양등급 신청과 요양서비스에 대한 전문적인 상담을 무료로 제공하며, 필요한 경우 신청을 도와드립니다.',
+      description: '장기요양등급 신��과 요양서비스에 대한 전문적인 상담을 무료로 제공하며, 필요한 경우 신청을 도와드립니다.',
       impact: '월평균 50건의 무료상담 진행'
     },
     {
@@ -54,10 +54,10 @@ export default function Volunteer() {
   const galleryImages: GalleryImage[] = [
     {
       id: 1,
-      src: '/images/volunteer/dementia-prevention.jpg',
-      alt: '치매예방 프로그램',
+      src: '/images/volunteer/elderly-visit.jpg',
+      alt: '독거어르신 방문봉사',
       date: '2024.03.15',
-      description: '관내 경로당에서 진행된 치매예방 프로그램'
+      description: '독거어르신 가정방문 및 생활지원'
     },
     {
       id: 2,
@@ -100,13 +100,13 @@ export default function Volunteer() {
             </h2>
             <p className="text-gray-700 mb-6 leading-relaxed">
               힘찬홈케어는 전문성과 경험을 바탕으로 지역사회 어르신들의 건강하고 행복한 노후를 위해 
-              다양한 무료 봉사활동을 진행하고 있습니다. 특히 치매예방 교육과 노인복지 상담을 통해 
+              다양한 무료 봉사활동을 진행하고 있습니다. 특히 독거어르신 방문봉사와 노인복지 상담을 통해 
               어르신들의 삶의 질 향상에 기여하고 있습니다.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="bg-white p-4 rounded-lg shadow-sm">
-                <h3 className="font-semibold text-gray-900 mb-2">치매예방 교육</h3>
-                <p className="text-gray-600 text-sm">지역 경로당 순회 프로그램 운영</p>
+                <h3 className="font-semibold text-gray-900 mb-2">독거어르신 방문봉사</h3>
+                <p className="text-gray-600 text-sm">정기적인 방문 및 생활지원</p>
               </div>
               <div className="bg-white p-4 rounded-lg shadow-sm">
                 <h3 className="font-semibold text-gray-900 mb-2">전문 상담 지원</h3>
