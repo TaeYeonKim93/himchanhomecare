@@ -23,9 +23,9 @@ export default function HomeCare() {
             transition={{ delay: 0.2 }}
           >
             <img
-              src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&q=80"
+              src="/images/yoyang.jpg"
               alt="방문요양서비스"
-              className="rounded-lg shadow-lg w-full"
+              className="rounded-lg shadow-lg w-full h-[400px] object-cover"
             />
           </motion.div>
 
@@ -36,37 +36,28 @@ export default function HomeCare() {
             className="space-y-6"
           >
             <div className="bg-blue-50 p-6 rounded-lg">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">2025년 방문요양 수가</h2>
-              <div className="space-y-3">
-                <div className="flex justify-between items-center">
-                  <span className="text-gray-600">30분</span>
-                  <div>
-                    <span className="font-medium">16,940원</span>
-                    <span className="text-sm text-gray-500 ml-2">(본인부담금 2,541원)</span>
-                  </div>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">방문요양서비스 소개</h2>
+              <div className="space-y-4">
+                <p className="text-gray-600">
+                  방문요양서비스는 장기요양등급을 받은 어르신의 가정을 전문 요양보호사가 방문하여 신체활동 및 일상생활을 도와드리는 서비스입니다.
+                </p>
+                <div className="space-y-2">
+                  <h3 className="font-semibold text-gray-900">서비스 특징</h3>
+                  <ul className="list-disc list-inside text-gray-600 space-y-1">
+                    <li>전문 교육을 이수한 요양보호사가 방문</li>
+                    <li>어르신의 상태와 필요에 맞는 맞춤형 서비스</li>
+                    <li>정기적인 서비스 품질 관리와 모니터링</li>
+                    <li>보호자와의 원활한 소통과 정보 공유</li>
+                  </ul>
                 </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-gray-600">60분</span>
-                  <div>
-                    <span className="font-medium">24,580원</span>
-                    <span className="text-sm text-gray-500 ml-2">(본인부담금 3,687원)</span>
-                  </div>
+                <div className="space-y-2">
+                  <h3 className="font-semibold text-gray-900">이용 대상</h3>
+                  <ul className="list-disc list-inside text-gray-600 space-y-1">
+                    <li>장기요양등급 1~5등급 판정을 받은 어르신</li>
+                    <li>일상생활 수행에 도움이 필요한 어르신</li>
+                    <li>가족의 돌봄이 어려운 어르신</li>
+                  </ul>
                 </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-gray-600">90분</span>
-                  <div>
-                    <span className="font-medium">33,120원</span>
-                    <span className="text-sm text-gray-500 ml-2">(본인부담금 4,968원)</span>
-                  </div>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-gray-600">120분</span>
-                  <div>
-                    <span className="font-medium">42,160원</span>
-                    <span className="text-sm text-gray-500 ml-2">(본인부담금 6,324원)</span>
-                  </div>
-                </div>
-                <p className="text-sm text-gray-500 mt-3">* 본인부담금은 15%입니다.</p>
               </div>
             </div>
           </motion.div>
