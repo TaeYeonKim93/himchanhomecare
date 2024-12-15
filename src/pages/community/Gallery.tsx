@@ -1,84 +1,123 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Camera } from 'lucide-react';
+import { Calendar, MapPin, Users } from 'lucide-react';
 
-const galleryItems = [
-  {
-    id: 1,
-    title: '요양보호사 정기교육',
-    date: '2024-03-15',
-    image: 'https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&q=80'
-  },
-  {
-    id: 2,
-    title: '어르신 생신잔치',
-    date: '2024-03-10',
-    image: 'https://images.unsplash.com/photo-1574618464782-16f0c6dc4c6a?auto=format&fit=crop&q=80'
-  },
-  {
-    id: 3,
-    title: '센터 정기모임',
-    date: '2024-03-05',
-    image: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80'
-  }
-];
+interface Activity {
+  id: number;
+  title: string;
+  date: string;
+  location: string;
+  participants: string;
+  image: string;
+  description: string;
+}
 
 export default function Gallery() {
+  const activities: Activity[] = [
+    {
+      id: 1,
+      title: '어르신과 함께하는 봄맞이 나들이',
+      date: '2024.03.15',
+      location: '일산 호수공원',
+      participants: '어르신 15명, 직원 8명',
+      image: '/images/activities/spring-trip.jpg',
+      description: '따뜻한 봄날, 어르신들과 함께 호수공원에서 즐거운 시간을 보냈습니다.'
+    },
+    {
+      id: 2,
+      title: '요양보호사 직무교육',
+      date: '2024.03.10',
+      location: '힘찬홈케어 교육실',
+      participants: '요양보호사 25명',
+      image: '/images/activities/training.jpg',
+      description: '전문성 향상을 위한 요양보호사 정기 직무교육을 진행했습니다.'
+    },
+    {
+      id: 3,
+      title: '3월 생신잔치',
+      date: '2024.03.05',
+      location: '힘찬홈케어 주간보호센터',
+      participants: '어르신 10명, 직원 5명',
+      image: '/images/activities/birthday.jpg',
+      description: '3월에 생신을 맞으신 어르신들을 위한 특별한 시간을 가졌습니다.'
+    }
+  ];
+
   return (
     <div className="pt-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          transition={{ duration: 0.5 }}
         >
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">힘찬 사진첩</h1>
-          <p className="text-lg text-gray-600">힘찬홈케어의 다양한 활동 모습을 소개합니다</p>
-        </motion.div>
+          <h1 className="text-3xl font-bold text-gray-900 mb-8">활동소식</h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {galleryItems.map((item, index) => (
-            <motion.div
-              key={item.id}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: index * 0.1 }}
-              className="group relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow"
-            >
-              <div className="aspect-w-16 aspect-h-9">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-                <div className="absolute bottom-0 left-0 right-0 p-4">
-                  <h3 className="text-white font-semibold text-lg mb-1">{item.title}</h3>
-                  <div className="flex items-center text-white/80 text-sm">
-                    <Camera className="w-4 h-4 mr-1" />
-                    <span>{item.date}</span>
+          <div className="grid gap-8">
+            {activities.map((activity, index) => (
+              <motion.div
+                key={activity.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                className="bg-white rounded-lg shadow-md overflow-hidden"
+              >
+                <div className="md:flex">
+                  <div className="md:flex-shrink-0">
+                    <img
+                      className="h-64 w-full object-cover md:w-96"
+                      src={activity.image}
+                      alt={activity.title}
+                    />
+                  </div>
+                  <div className="p-8">
+                    <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                      {activity.title}
+                    </h2>
+                    
+                    <div className="space-y-3 mb-6">
+                      <div className="flex items-center text-gray-600">
+                        <Calendar className="w-5 h-5 mr-2" />
+                        <span>{activity.date}</span>
+                      </div>
+                      <div className="flex items-center text-gray-600">
+                        <MapPin className="w-5 h-5 mr-2" />
+                        <span>{activity.location}</span>
+                      </div>
+                      <div className="flex items-center text-gray-600">
+                        <Users className="w-5 h-5 mr-2" />
+                        <span>{activity.participants}</span>
+                      </div>
+                    </div>
+
+                    <p className="text-gray-600 mb-6">
+                      {activity.description}
+                    </p>
+
+                    <button className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                      자세히 보기
+                    </button>
                   </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+              </motion.div>
+            ))}
+          </div>
 
-        <div className="mt-8 flex justify-center">
-          <nav className="flex items-center space-x-2">
-            <button className="px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-50">
-              이전
-            </button>
-            <button className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">
-              1
-            </button>
-            <button className="px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-50">
-              다음
-            </button>
-          </nav>
-        </div>
+          {/* 페이지네이션 */}
+          <div className="mt-8 flex justify-center">
+            <nav className="flex items-center space-x-2">
+              <button className="px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-50">
+                이전
+              </button>
+              <button className="px-4 py-2 bg-blue-600 text-white rounded-md">
+                1
+              </button>
+              <button className="px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-50">
+                다음
+              </button>
+            </nav>
+          </div>
+        </motion.div>
       </div>
     </div>
   );
