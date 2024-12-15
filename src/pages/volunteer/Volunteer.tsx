@@ -24,12 +24,12 @@ export default function Volunteer() {
   const activities: VolunteerActivity[] = [
     {
       id: 1,
-      title: '치매예방 순회교육',
+      title: '독거어르신 방문봉사',
       frequency: '월 2회',
-      location: '일산서구 관내 경로당',
-      beneficiaries: '지역 어르신',
-      description: '전문 강사진이 지역 경로당을 순회하며 치매 예방을 위한 인지활동 프로그램과 건강체조를 무료로 진행합니다.',
-      impact: '매년 300명 이상의 어르신 참여'
+      location: '일산서구 관내',
+      beneficiaries: '독거어르신',
+      description: '지역 내 독거어르신을 정기적으로 방문하여 말벗이 되어드리고, 일상생활을 도와드리며 안부를 확인합니다.',
+      impact: '매년 100명 이상의 독거어르신 지원'
     },
     {
       id: 2,
@@ -151,10 +151,10 @@ export default function Volunteer() {
 
           {/* 연락처 안내 */}
           <div className="bg-white p-6 rounded-lg shadow-md mb-8">
-            <h2 className="text-xl font-semibold text-gray-900 mb-4">봉의 안내</h2>
+            <h2 className="text-xl font-semibold text-gray-900 mb-4">봉사활동 안내</h2>
             <p className="text-gray-600 mb-4">
               지역사회 봉사활동과 관련하여 문의사항이 있으시면 아래 연락처로 연락 주시기 바랍니다.
-              전문 상담사가 자세히 안내해 드리겠습니다.
+              친절히 안내해 드리겠습니다.
             </p>
             <div className="flex items-center text-blue-600">
               <Phone className="w-5 h-5 mr-2" />
