@@ -15,7 +15,9 @@ import HomeCare from './pages/services/HomeCare';
 import BathService from './pages/services/BathService';
 import FreeApplication from './pages/application/FreeApplication';
 import Community from './pages/community/Community';
-import Support from './pages/support/Support';
+import Gallery from './pages/community/Gallery';
+import Jobs from './pages/community/Jobs';
+import Volunteer from './pages/volunteer/Volunteer';
 
 function App() {
   return (
@@ -27,14 +29,12 @@ function App() {
             <Route path="/" element={<Main />} />
             <Route path="/center">
               <Route index element={<CenterIntro />} />
-              <Route path="intro" element={<CenterIntro />} />
               <Route path="greeting" element={<Greeting />} />
               <Route path="location" element={<Location />} />
               <Route path="contact" element={<Contact />} />
             </Route>
             <Route path="/services">
               <Route index element={<ServiceIntro />} />
-              <Route path="intro" element={<ServiceIntro />} />
               <Route path="long-term-care" element={<LongTermCare />} />
               <Route path="home-care" element={<HomeCare />} />
               <Route path="bath-service" element={<BathService />} />
@@ -43,8 +43,12 @@ function App() {
               <Route index element={<FreeApplication />} />
               <Route path="free" element={<FreeApplication />} />
             </Route>
-            <Route path="/community" element={<Community />} />
-            <Route path="/support" element={<Support />} />
+            <Route path="/community">
+              <Route index element={<Community />} />
+              <Route path="gallery" element={<Gallery />} />
+              <Route path="jobs" element={<Jobs />} />
+            </Route>
+            <Route path="/volunteer" element={<Volunteer />} />
           </Routes>
         </main>
         <Footer />
