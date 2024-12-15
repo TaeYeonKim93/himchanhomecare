@@ -31,15 +31,6 @@ export default function Gallery() {
       participants: '요양보호사 25명',
       image: '/images/activities/training.jpg',
       description: '전문성 향상을 위한 요양보호사 정기 직무교육을 진행했습니다.'
-    },
-    {
-      id: 3,
-      title: '3월 생신잔치',
-      date: '2024.03.05',
-      location: '힘찬홈케어 주간보호센터',
-      participants: '어르신 10명, 직원 5명',
-      image: '/images/activities/birthday.jpg',
-      description: '3월에 생신을 맞으신 어르신들을 위한 특별한 시간을 가졌습니다.'
     }
   ];
 

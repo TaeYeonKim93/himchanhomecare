@@ -21,7 +21,7 @@ export default function Volunteer() {
       title: '어르신 말벗 봉사',
       date: '2024.03.25',
       time: '14:00 - 16:00',
-      location: '힘찬홈케어 주간보호센터',
+      location: '힘찬홈케어',
       maxParticipants: 10,
       currentParticipants: 5,
       description: '어르신들과 함께 이야기를 나누며 즐거운 시간을 보내는 봉사활동입니다.',
