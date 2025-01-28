@@ -46,10 +46,10 @@ const menuItems = [
 ];
 
 function SubMenu({ items, isVisible }: { items: any[]; isVisible: boolean }) {
-  if (!isVisible) return null;
-
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, y: -10 }}
+      animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : -10 }}
       className="absolute left-0 w-48 bg-white shadow-lg rounded-md overflow-hidden"
       style={{ top: 'calc(100% - 0.5rem)' }}
     >
@@ -64,7 +64,7 @@ function SubMenu({ items, isVisible }: { items: any[]; isVisible: boolean }) {
           </Link>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 }
 
@@ -76,7 +76,8 @@ export default function Navbar() {
   const [consultType, setConsultType] = useState<'phone' | 'kakao'>('phone');
   const location = useLocation();
   const isMainPage = location.pathname === '/';
-  const timeoutRef = useRef<NodeJS.Timeout>();
+  const timeoutRef = useRef<number>();
+  const [activeMobileSubmenu, setActiveMobileSubmenu] = useState<number | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -110,6 +111,10 @@ export default function Navbar() {
       return isScrolled ? 'text-gray-800' : 'text-white';
     }
     return 'text-gray-800';
+  };
+
+  const handleMobileSubmenu = (index: number) => {
+    setActiveMobileSubmenu(activeMobileSubmenu === index ? null : index);
   };
 
   return (
@@ -211,29 +216,72 @@ export default function Navbar() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="lg:hidden bg-white border-t"
+              className="lg:hidden bg-white border-t absolute w-full z-50"
             >
-              <div className="px-2 pt-2 pb-3 space-y-1">
+              <div className="px-4 pt-4 pb-6 space-y-3">
                 {menuItems.map((item, index) => (
-                  <Link
-                    key={index}
-                    to={item.link}
-                    className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {item.title}
-                  </Link>
+                  <div key={index}>
+                    <div className="flex items-center justify-between">
+                      {item.submenu ? (
+                        <button
+                          onClick={() => handleMobileSubmenu(index)}
+                          className="w-full text-left px-3 py-3 text-lg font-medium text-gray-800 hover:text-blue-600 flex justify-between items-center"
+                        >
+                          {item.title}
+                          <motion.span
+                            animate={{ rotate: activeMobileSubmenu === index ? 180 : 0 }}
+                          >
+                            ▼
+                          </motion.span>
+                        </button>
+                      ) : (
+                        <Link
+                          to={item.link}
+                          onClick={() => setIsOpen(false)}
+                          className="block w-full px-3 py-3 text-lg font-medium text-gray-800 hover:text-blue-600"
+                        >
+                          {item.title}
+                        </Link>
+                      )}
+                    </div>
+                    
+                    {item.submenu && (
+                      <motion.div
+                        initial={{ height: 0 }}
+                        animate={{
+                          height: activeMobileSubmenu === index ? 'auto' : 0,
+                          transition: { duration: 0.2 }
+                        }}
+                        className="overflow-hidden pl-6"
+                      >
+                        {item.submenu.map((subItem, subIndex) => (
+                          <Link
+                            key={subIndex}
+                            to={subItem.link}
+                            onClick={() => {
+                              setIsOpen(false);
+                              setActiveMobileSubmenu(null);
+                            }}
+                            className="block px-3 py-2.5 text-base text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded"
+                          >
+                            {subItem.title}
+                          </Link>
+                        ))}
+                      </motion.div>
+                    )}
+                  </div>
                 ))}
-                <div className="flex space-x-2 px-3 py-2">
+                
+                <div className="grid grid-cols-2 gap-3 px-3 pt-4">
                   <motion.button
                     whileTap={{ scale: 0.95 }}
                     onClick={() => {
                       handleConsult('phone');
                       setIsOpen(false);
                     }}
-                    className="flex-1 bg-blue-600 text-white px-3 py-2 rounded-md hover:bg-blue-700 text-sm"
+                    className="bg-blue-600 text-white px-4 py-3 rounded-lg hover:bg-blue-700 text-base font-medium"
                   >
-                    상담
+                    전화상담
                   </motion.button>
                   <motion.button
                     whileTap={{ scale: 0.95 }}
@@ -241,9 +289,9 @@ export default function Navbar() {
                       handleConsult('kakao');
                       setIsOpen(false);
                     }}
-                    className="flex-1 bg-yellow-400 text-black px-3 py-2 rounded-md hover:bg-yellow-500 text-sm"
+                    className="bg-yellow-400 text-black px-4 py-3 rounded-lg hover:bg-yellow-500 text-base font-medium"
                   >
-                    카톡
+                    카카오톡
                   </motion.button>
                 </div>
               </div>

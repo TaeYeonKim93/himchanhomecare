@@ -62,8 +62,8 @@ export default function Hero() {
             className="mt-8 flex items-center justify-center space-x-6 px-4"
           >
             <Star className="h-10 w-10 text-yellow-400" fill="currentColor" />
-            <p className="text-2xl text-white font-bold tracking-wider leading-relaxed whitespace-nowrap">
-              전국 재가 장기요양기관 평가 최우수기관(연속 A등급)
+            <p className="text-2xl text-white font-bold tracking-wider leading-relaxed">
+              전국 재가 장기요양기관 <br className="lg:hidden"/>평가 최우수기관<br className="lg:hidden"/> (연속 A등급)
             </p>
             <Star className="h-10 w-10 text-yellow-400" fill="currentColor" />
           </motion.div>
