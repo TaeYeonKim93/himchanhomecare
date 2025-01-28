@@ -19,7 +19,7 @@ import Gallery from './pages/community/Gallery';
 import Board from './pages/community/Board';
 import Volunteer from './pages/volunteer/Volunteer';
 
-function App() {
+export default function App() {
   return (
     <Router>
       <div className="flex flex-col min-h-screen">
@@ -56,5 +56,3 @@ function App() {
     </Router>
   );
 }
-
-export default App;
