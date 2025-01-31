@@ -14,7 +14,7 @@ export default function ConsultModal({ isOpen, onClose, type }: ConsultModalProp
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (type === 'phone') {
       // Format the message
       const message = `[힘찬홈케어 상담문의]\n이름: ${name}\n연락처: ${phone}`;
@@ -29,6 +29,11 @@ export default function ConsultModal({ isOpen, onClose, type }: ConsultModalProp
       setName('');
       setPhone('');
       onClose();
+    } else if (type === 'kakao') {
+      // 카카오톡 상담 로직 (채널 URL 연결)
+      const kakaoChannelUrl = 'http://pf.kakao.com/_xxxxx'; // **{{ 여기에 실제 카카오톡 채널 URL을 넣어주세요! }}**
+      window.open(kakaoChannelUrl, '_blank'); // 새 창으로 열기
+      onClose(); // 모달 닫기 (카카오톡 상담은 별도 창에서 진행되므로 모달 닫음)
     }
   };
 
@@ -78,19 +83,21 @@ export default function ConsultModal({ isOpen, onClose, type }: ConsultModalProp
                 />
               </div>
 
-              <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
-                  연락처
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-                  required
-                />
-              </div>
+              {type === 'phone' && ( // 전화 상담일 때만 연락처 필드 표시
+                <div>
+                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
+                    연락처
+                  </label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                    required
+                  />
+                </div>
+              )}
 
               <div className="mt-6">
                 <button
