@@ -34,7 +34,11 @@ export default defineConfig(({ mode }) => {
         port: 3000,
         strictPort: true
       }),
-      ...productionServer
+      ...productionServer,
+      headers: {
+        'Content-Type': 'application/xml',
+        'X-Robots-Tag': 'all'
+      }
     },
     build: {
       outDir: 'dist',
