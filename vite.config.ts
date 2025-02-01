@@ -40,6 +40,7 @@ export default defineConfig(({ mode }) => {
       outDir: 'dist',
       assetsDir: 'assets',
       sourcemap: env.VITE_ENABLE_SOURCEMAP === 'true'
-    }
+    },
+    base: '/',
   };
 });
