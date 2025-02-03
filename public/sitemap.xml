@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- 메인 페이지 최우선 -->
+  <!-- 메인 페이지 -->
   <url>
-    <loc>https://himchan.hopto.org/</loc>
+    <loc>https://himchancare.kr/</loc>
     <priority>1.0</priority>
   </url>
 
   <!-- 센터소개 -->
   <url>
-    <loc>https://himchan.hopto.org/center</loc>
+    <loc>https://himchancare.kr/center</loc>
     <lastmod>2024-06-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://himchan.hopto.org/center/greeting</loc>
+    <loc>https://himchancare.kr/center/greeting</loc>
     <lastmod>2024-06-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://himchan.hopto.org/center/location</loc>
+    <loc>https://himchancare.kr/center/location</loc>
     <lastmod>2024-06-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://himchan.hopto.org/center/contact</loc>
+    <loc>https://himchancare.kr/center/contact</loc>
     <lastmod>2024-06-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -34,25 +34,25 @@
 
   <!-- 서비스소개 -->
   <url>
-    <loc>https://himchan.hopto.org/services</loc>
+    <loc>https://himchancare.kr/services</loc>
     <lastmod>2024-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://himchan.hopto.org/services/long-term-care</loc>
+    <loc>https://himchancare.kr/services/long-term-care</loc>
     <lastmod>2024-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://himchan.hopto.org/services/home-care</loc>
+    <loc>https://himchancare.kr/services/home-care</loc>
     <lastmod>2024-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://himchan.hopto.org/services/bath-service</loc>
+    <loc>https://himchancare.kr/services/bath-service</loc>
     <lastmod>2024-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -60,25 +60,25 @@
 
   <!-- 무료등급신청대행 -->
   <url>
-    <loc>https://himchan.hopto.org/application/free</loc>
+    <loc>https://himchancare.kr/application/free</loc>
     <priority>0.8</priority>
   </url>
 
   <!-- 커뮤니티 -->
   <url>
-    <loc>https://himchan.hopto.org/community</loc>
+    <loc>https://himchancare.kr/community</loc>
     <lastmod>2024-06-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://himchan.hopto.org/community/gallery</loc>
+    <loc>https://himchancare.kr/community/gallery</loc>
     <lastmod>2024-06-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://himchan.hopto.org/community/board</loc>
+    <loc>https://himchancare.kr/community/board</loc>
     <lastmod>2024-06-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -86,7 +86,7 @@
 
   <!-- 지역사회봉사 -->
   <url>
-    <loc>https://himchan.hopto.org/volunteer</loc>
+    <loc>https://himchancare.kr/volunteer</loc>
     <lastmod>2024-06-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
